@@ -14,7 +14,7 @@ muduo网络库使用reactor模式，其中mainReactor只负责监听是否有新
 ## 模块划分
 1、辅助模块
 
-**noncopyable**
+**noncopyable(#jump_1)**
 
 **CurrentThread**
 
@@ -39,3 +39,20 @@ muduo网络库使用reactor模式，其中mainReactor只负责监听是否有新
 **EventThread和EventThreadPool**
 
 **TcpConnection和TcpServer**
+
+
+## 模块介绍
+
+1、noncopyable<a id="jump_1"></a>
+
+该类主要作用是让所有继承自它的类无法被复制，好处是增加代码的可读性，减少码字。
+
+2、CurrentThread
+
+CurrentThread的作用是通过系统调用**syscall(SYS_gettid)**返回当前线程的tid，用于对象判断是否在同一个线程。
+
+3、logger
+
+logger设置了日志的等级，并提供了打印不同级别日志的宏定义。
+
+4、
